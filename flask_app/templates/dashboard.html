@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body {
+            background-color: #F9F8F8;
+        }
+    </style>
+</head>
+<body>
+    <!-- top navbar -->
+    <div class="topbar">
+        <div class="navbar">
+            <h1>
+                <i class="bi bi-pen"></i>
+                Noteworthy
+            </h1>
+            <ul>
+                <li>
+                    <a href="#">home</a>
+                </li>
+                <li>
+                    <a href="/entry/{{date.date()}}">my journal</a>
+                </li>
+                <li>
+                    <a href="/entry/all">all entries</a> 
+                </li>
+                <li>
+                    <a href="#">calendar</a> 
+                </li>
+            </ul>
+            <a href="/logout" class="button">Logout</a>
+        </div> 
+    </div>
+    <!-- Welcome greeting -->
+    <div class="box" style="background-color: transparent;">
+        <h1>Welcome Back, {{ session.name }}</h1>
+    </div>
+    <!-- row 1 -->
+    <div class="container" style="width: 80%;">
+        <div class="row d-flex justify-content-around">
+            <div class="col-5">
+                <h3 class="date">
+                    {{ date.strftime("%A %B %d, %Y") }}
+                </h3>
+                <div class="time">
+                    {{ date.strftime("%-I:%M")}}
+                </div>
+            </div>
+            <div class="col-5 d-flex align-items-center">
+                <div class="boxed">
+                    <span class="quote">
+                        "All we have to decide is what to do with the time that is given to us"
+                    </span>
+                    <a href="/entry/today" class="link-today" style="display:block; text-align: center;">
+                        write
+                        <i class="bi bi-arrow-right"></i>
+                    </a>                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="my-3 d-flex justify-content-between sect-head">
+                <h4>recent entries:</h4>
+                <h5>
+                    <a href="/entry/all">
+                        all entries
+                        <i class="bi bi-caret-right-fill"></i>                        
+                    </a>
+
+                </h5>
+            </div>
+            <div class="row gap-3 flex-nowrap overflow-auto py-2">
+                {% if not recent_entries %}
+                    <p>no entries</p>
+                {% else %}
+                    {% for entry in recent_entries %}
+                        <div class="card card-link" style="width: 15rem; height: 14rem">
+                            <a href="/entry/{{ entry.entry_date }}">
+                                <div class="card-body" style="height: 14rem">
+                                    <h5 class="card-title">{{ entry.title }}</h5>
+                                    <pre class="card-text">{{ entry.text }}</pre>
+                                </div>
+                            </a>
+                        </div>                               
+                    {% endfor %}                    
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

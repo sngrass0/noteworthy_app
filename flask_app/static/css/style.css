@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.604) !important;
+}
+
+.page {
+    background-color: aliceblue;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.block {
+    background-image: url(https://64.media.tumblr.com/ef1f8b82885ad89a76807daabbf387b3/tumblr_ols5ymV7cr1vnnzjso1_1280.jpg);
+    background-size: cover;  
+    background-position: center;  
+    flex: 3;
+}
+
+.login {
+    background-image: none;
+    background-color: #F9F8F8;
+    flex: 2;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.login h3 {
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+    background-color: black !important;
+    color: white;
+    padding: 4px 20px;
+    border: 1.5px solid black;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: white !important;
+    color: black;
+    transition: 0.3s;
+}
+
+.box {
+    background-image: non;
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px;
+    top: 50%;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.box h1{
+    font-family: 'DM Serif Text', serif;
+}
+
+.box h4 {
+    margin-top: 0;
+    font-size: 1em;
+    text-align: right;
+    color: #949494;
+}
+
+.box h4 a {
+    color: rgb(82, 45, 45);
+    text-decoration: none;
+}
+
+.entry-page {
+    /* background-color: rgb(248, 248, 248); */
+    box-shadow: 8px 8px rgb(221, 221, 221);
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 2%;
+    padding: 20px 50px;
+    width: 60%;
+    min-height: 500px;
+    /* height: 800px; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.entry-side {
+    position: absolute;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-button {
+    background-color: black;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 50%;
+    align-content: center;
+    font-size: 1.2em;    
+    border: 1.5px solid black;
+}
+
+.side-button:hover {
+    background-color: white !important;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.side-button a {
+    color: inherit;
+}
+
+.entry-page {
+    background-color: white;
+}
+
+.entry-page h1 {
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-around;
+    top: 0;
+    background-color: black;
+    height: 100vh;
+    text-align: center;
+    /* padding: 0px 12px; */
+}
+
+.top-side a {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+    padding: 0px 12px;
+}
+
+.side-link:hover {
+    background-color: white;
+    color: black;
+}
+
+.home {
+    padding: 10px 20px;
+    margin-right: 3%;
+    font-size: 2em;
+    color: black;
+    font-size: 2em !important;
+}
+
+.topbar {
+    background-color: #F9F8F8;
+    box-shadow: 0px 3px 5px rgb(223, 223, 223);
+}
+
+.navbar {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar h1 {
+    font-family: 'DM Serif Text', serif;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar ul a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar ul a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.15em;
+    background-color: black;
+    transition: opacity 300ms, transform 300ms;
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+}
+
+.navbar ul a:hover::after,
+.navbar ul a:focus::after{
+  transform: translate3d(0, 0, 0);
+}
+
+.navbar ul {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.date {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: -30px;
+}
+
+.time {
+    font-size: 10em;
+    font-family: 'DM Serif Text', serif;
+    margin: auto;
+    text-align: center;
+}
+
+.quote {
+    display: inline-block;
+    color: #949494;
+    text-align: center;
+    font-size: 1.9em;
+}
+
+.link-today {
+    margin: 0px 35%;
+    margin-top: 20px;
+    font-size: 1.5em;
+    background-color: #3f3939;
+    color: white;
+    border-radius: 15px;
+}
+
+.boxed {
+    margin: auto;
+}
+
+.card-link {
+    overflow: hidden;
+}
+
+.card-link::after {
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0,rgba(255,255,255,.7) 50%,rgba(255,255,255,1) 100%);
+    bottom: 0;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.card-link pre {
+    white-space: pre-line;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+}
+
+.content {
+    
+    padding: 10px;
+}
+
+.content h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.content pre {
+    white-space: pre-line;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+}
+
+.entry-page img {
+    position: absolute;
+    right: 25%;
+    top: 12%;
+    height: 100px;
+}
+
+.recents {
+    background-color: #949494;
+    overflow: hidden;
+}
+
+.sect-head h4 {
+    font-family: 'DM Serif Text', serif;
+}
+
+.tags a:hover {
+    background-color: black;
+    color: white;
+}
+
+.tag-list {
+    margin-left: 10%;
+    margin-top: 25px;
+}
+
+.card {
+    transition: transform 225ms;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background-image: url(https://t3.ftcdn.net/jpg/04/95/94/68/360_F_495946837_yxfxEiv2B2LPtbh4vCMScZiZxneJ7pqL.jpg);
+        }
+    </style>
+</head>
+<body>
+        <div class="d-flex">
+            <a class="home" href="/dashboard">
+                <i class="bi bi-house-door" style="color: white;"></i>
+            </a>
+        </div>
+        <!-- side navbar -->
+        <div class="sidebar">
+            <div class="top-side">
+                <a class="home" href="/dashboard">
+                    <i class="bi bi-house-door" style="color: white;"></i>
+                </a>
+                <a href="/entry/all" class="side-link">all</a>
+                <a href="/entry/today" class="side-link">today</a>
+                <a href="#" class="side-link">calendar</a>
+            </div>
+            <a class="home" href="/logout">
+                <i class="bi bi-box-arrow-right" style="color: white;"></i>
+            </a>
+        </div>
+        <!-- page -->
+        <div class="entry-page">
+            {% if entry %}
+                <img src="https://cdn-icons-png.flaticon.com/512/880/880612.png" alt="bookmark">
+            {% endif %}
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+            </svg> -->
+            <!-- side buttons -->
+            <div class="entry-side">
+                {% if not entry %}
+                    <span class="side-button">
+                        <a href="/entry/new/{{ date.date() }}">
+                            <i class="bi bi-plus"></i>
+                        </a>                
+                    </span>
+                {% else %}
+                    <span class="side-button">
+                        <a href="/entry/edit/{{ date }}">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>                
+                    </span>                
+                    <span class="side-button">
+                        <a href="/entry/delete/{{ entry.id }}">
+                            <i class="bi bi-trash"></i>
+                        </a>                
+                    </span>  
+                {% endif %}
+            </div>
+            <!-- content -->
+            <div class="content">
+                <h1 class="mb-3">{{ date.strftime('%A - %B %d, %Y') }}</h1>
+                {% if not entry %}
+                    <h3 style="color: lightgray;">No Entry</h3>
+                {% else %}
+                    <h3>{{ entry.title }}</h3>
+                
+                    <pre>
+                        {{ entry.text }}
+                    </pre>
+                {% endif %}
+            </div>
+            <!-- entry tags -->
+            <div class="tags">
+                <h5>Tags:
+                    {% for tag in entry.tags %}
+                        {% if entry and tag.id and tag.id != None %}
+                            <a href="/tag/{{ tag.id }}">
+                                #{{ tag.title }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </h5>                
+            </div>
+        </div>
+        <!-- bottom buttons -->
+        <div class="d-flex justify-content-center mt-3">
+            <a href="/entry/{{ date.date() - offset }}">
+                <i class="bi bi-caret-left-fill"></i>
+            </a>
+            <input type="date" name="date" id="date_change" value="{{ date.date() }}">
+            {% if (date.date() + offset) <= today %}
+                <a href="/entry/{{ date.date() + offset }}">
+                    <i class="bi bi-caret-right-fill"></i>
+                </a>
+            {% endif %}
+        </div>
+</body>
+</html>

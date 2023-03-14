@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+input {
+    background-color: rgba(255, 255, 255, 0.604) !important;
+}
+
+.page {
+    background-color: aliceblue;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.block {
+    background-image: url(https://64.media.tumblr.com/ef1f8b82885ad89a76807daabbf387b3/tumblr_ols5ymV7cr1vnnzjso1_1280.jpg);
+    background-size: cover;  
+    background-position: center;  
+    flex: 3;
+}
+
+.login {
+    background-image: none;
+    background-color: #F9F8F8;
+    flex: 2;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.login h3 {
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+    background-color: black !important;
+    color: white;
+    padding: 4px 20px;
+    border: 1.5px solid black;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: white !important;
+    color: black;
+    transition: 0.3s;
+}
+
+.box {
+    background-image: non;
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px;
+    top: 50%;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.box h4 {
+    margin-top: 0;
+    font-size: 1em;
+    text-align: right;
+    color: #949494;
+}
+
+.box h4 a {
+    color: rgb(82, 45, 45);
+    text-decoration: none;
+}
+
+.entry-page {
+    /* background-color: rgb(248, 248, 248); */
+    box-shadow: 8px 8px rgb(221, 221, 221);
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 5%;
+    padding: 20px 50px;
+    width: 60%;
+    min-height: 500px;
+    /* height: 800px; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.entry-side {
+    position: absolute;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-button {
+    background-color: black;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 50%;
+    align-content: center;
+    font-size: 1.2em;    
+    border: 1.5px solid black;
+}
+
+.side-button:hover {
+    background-color: white !important;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.side-button a {
+    color: inherit;
+}
+
+.entry-page h1 {
+    font-size: 2em;
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+}

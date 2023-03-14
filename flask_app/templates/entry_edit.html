@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Entry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background-image: url(https://t3.ftcdn.net/jpg/04/95/94/68/360_F_495946837_yxfxEiv2B2LPtbh4vCMScZiZxneJ7pqL.jpg);
+        }
+    </style>
+</head>
+<body>
+    <!-- home button -->
+    <div class="d-flex">
+        <a class="home" href="/dashboard">
+            <i class="bi bi-house-door" style="color: white;"></i>
+        </a>
+    </div>
+    <!-- side navbar -->
+    <div class="sidebar">
+        <div class="top-side">
+            <a class="home" href="/dashboard">
+                <i class="bi bi-house-door" style="color: white;"></i>
+            </a>
+            <a href="/entry/all" class="side-link">all</a>
+            <a href="/entry/today" class="side-link">today</a>
+            <a href="#" class="side-link">calendar</a>
+        </div>
+        <a class="home" href="/logout">
+            <i class="bi bi-box-arrow-right" style="color: white;"></i>
+        </a>
+    </div>
+    <div class="entry-page">
+        <!-- side buttons -->
+        <div class="entry-side">
+            <span class="side-button">
+                <a href="/entry/{{ entry.entry_date }}">
+                    <i class="bi bi-x"></i>
+                </a>                
+            </span>                              
+        </div>
+        <!-- content -->
+        <div class="content">
+            <h1 class="mb-3">{{ entry.entry_date.strftime('%A - %B %d, %Y') }}</h1>
+            <form action="/entry/update" method="POST">
+                <input type="hidden" name="id" value="{{ entry.id }}">
+                <input type="hidden" name="entry_date" value="{{ entry.entry_date }}">
+                <div class="form-group my-1 row">
+                    <input class="form-control"  type="text" name="title" placeholder="title" value="{{ entry.title }}">
+                </div>
+                <div class="form-group my-3 row">
+                    <textarea class="form-control" rows="10" name="text" placeholder="write anything here ^^">{{ entry.text }}</textarea>
+                </div>
+                <div class="form-group my-1 mb-2 row">
+                    <input class="form-control"  type="text" name="tags" placeholder="tags" value="{{ tags }}">
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <input type="submit" class="button" value="Save">
+                </div>
+            </form>              
+        </div>
+    </div>
+</body>
+</html>

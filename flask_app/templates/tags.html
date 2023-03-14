@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tag.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- side navbar -->
+    <div class="sidebar">
+        <div class="top-side">
+            <a class="home" href="/dashboard">
+                <i class="bi bi-house-door" style="color: white;"></i>
+            </a>
+            <a href="/entry/all" class="side-link">all</a>
+            <a href="/entry/today" class="side-link">today</a>
+            <a href="#" class="side-link">calendar</a>
+        </div>
+        <a class="home" href="/logout">
+            <i class="bi bi-box-arrow-right" style="color: white;"></i>
+        </a>
+    </div>
+    <div class="tag-list">
+        <h1>#{{ tag.title }}</h1>
+
+        <div class="row gap-3 py-2">
+            {% if not tag.entries%}
+                <p>no entries</p>
+            {% else %}
+                {% for entry in tag.entries %}
+                    <div class="card card-link" style="width: 15rem; height: 14rem">
+                        <a href="/entry/{{ entry.entry_date }}">
+                            <div class="card-body" style="height: 14rem">
+                                <h5 class="card-title">{{ entry.title }}</h5>
+                                <pre class="card-text">{{ entry.text }}</pre>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}        
+        </div>        
+    </div>
+
+
+</body>
+
+</html>
